@@ -45,7 +45,7 @@ gitbook build
 
 cp -R _book/. ${GITHUB_ACTOR}.github.io/
 
-echo =================1
+echo copy finish
 
 cd ${GITHUB_ACTOR}.github.io
 
@@ -60,9 +60,9 @@ git config --global user.name "${GITHUB_ACTOR}"
 COMMIT_MESSAGE="Update gitbook `date '+%Y-%m-%d %H:%M:%S'`"
 git commit -a -m "${COMMIT_MESSAGE}"
 
-echo =================2
+echo remote set-url
 git remote set-url origin https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git
 
-echo =================3
+echo begin push
 
 git push
