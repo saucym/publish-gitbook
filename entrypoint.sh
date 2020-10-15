@@ -29,10 +29,11 @@ git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 print_info "installing gitbook-cli"
 npm install gitbook-cli  -g
 
-rm -r _book
 print_info "installing gitbook plugins"
 gitbook --version
 gitbook install
+
+rm -r _book
 
 git clone https://github.com/saucym/saucym.github.io.git
 
@@ -42,7 +43,7 @@ pwd
 print_info "buildling gitbook"
 gitbook build
 
-cp -R _book/ saucym.github.io/
+cp -R _book/. saucym.github.io/
 
 echo =================1
 
