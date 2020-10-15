@@ -33,20 +33,23 @@ print_info "installing gitbook plugins"
 gitbook --version
 gitbook install
 
-rm -r _book
-git clone https://github.com/saucym/saucym.github.io.git _book
+git clone https://github.com/saucym/saucym.github.io.git
 
-ls
-echo =================
-ls _book/
+pwd
 
 # build gitbook
 print_info "buildling gitbook"
 gitbook build
 
-cd _book
+cp -R ../_book/ ../saucym.github.io/
+
+echo =================
+
+cd saucym.github.io
 
 git add .
+
+git remote -v
 
 # commit
 COMMIT_MESSAGE="Update gitbook `date '+%Y-%m-%d %H:%M:%S'`"
