@@ -21,9 +21,6 @@ else
     exit 1
 fi
 
-echo "1111 ${GITHUB_ACTOR}"
-echo "2222 ${GITHUB_REPOSITORY}"
-
 # config git
 git config --local user.name "${GITHUB_ACTOR}"
 git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
@@ -38,7 +35,7 @@ gitbook install
 
 rm -r _book
 
-git clone https://github.com/saucym/saucym.github.io.git
+git clone https://github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git
 
 pwd
 
@@ -46,25 +43,25 @@ pwd
 print_info "buildling gitbook"
 gitbook build
 
-cp -R _book/. saucym.github.io/
+cp -R _book/. ${GITHUB_ACTOR}.github.io/
 
 echo =================1
 
-cd saucym.github.io
+cd ${GITHUB_ACTOR}.github.io
 
 git add .
 
 git remote -v
 
-git config --global user.email "qhc_m@qq.com"
-git config --global user.name "saucym"
+git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git config --global user.name "${GITHUB_ACTOR}"
 
 # commit
 COMMIT_MESSAGE="Update gitbook `date '+%Y-%m-%d %H:%M:%S'`"
 git commit -a -m "${COMMIT_MESSAGE}"
 
 echo =================2
-git remote set-url origin https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/saucym/saucym.github.io.git
+git remote set-url origin https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git
 
 echo =================3
 
