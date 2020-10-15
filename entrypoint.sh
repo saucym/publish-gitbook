@@ -41,9 +41,9 @@ pwd
 print_info "buildling gitbook"
 gitbook build
 
-cp -R ../_book/ ../saucym.github.io/
+cp -R _book/ saucym.github.io/
 
-echo =================
+echo =================1
 
 cd saucym.github.io
 
@@ -51,8 +51,13 @@ git add .
 
 git remote -v
 
+git config --global user.email "qhc_m@qq.com"
+git config --global user.name "saucym"
+
 # commit
 COMMIT_MESSAGE="Update gitbook `date '+%Y-%m-%d %H:%M:%S'`"
 git commit -a -m "${COMMIT_MESSAGE}"
+
+echo =================2
 
 git push
