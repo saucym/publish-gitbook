@@ -33,34 +33,19 @@ print_info "installing gitbook plugins"
 gitbook --version
 gitbook install
 
+rm -r _book
+git clone https://github.com/saucym/saucym.github.io.git _book
+
 # build gitbook
 print_info "buildling gitbook"
 gitbook build
 
-# checkout gh-pages branch
-set +e
-git checkout gh-pages || git checkout -b gh-pages
-git fetch origin && git reset origin/gh-pages
-git status
-set -e
+cd _book
 
-# copy the static site files into the current directory
-cp -R _book/* .
-
-# remove 'node_modules' and '_book' directory
-print_info "cleaning artifacts"
-git clean -fx node_modules
-git clean -fx _book
-
-# add all files
 git add .
 
 # commit
 COMMIT_MESSAGE="Update gitbook `date '+%Y-%m-%d %H:%M:%S'`"
 git commit -a -m "${COMMIT_MESSAGE}"
 
-git remote add publisher ${PUBLISHER_REPO}
-
-# push to the publisher
-print_info "pushing to gh-pages branch"
-git push -u publisher gh-pages
+git push
