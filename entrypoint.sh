@@ -36,6 +36,9 @@ gitbook install
 rm -r _book
 git clone https://github.com/saucym/saucym.github.io.git _book
 
+ls
+ls _book/
+
 # build gitbook
 print_info "buildling gitbook"
 gitbook build
