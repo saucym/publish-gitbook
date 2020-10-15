@@ -21,6 +21,9 @@ else
     exit 1
 fi
 
+echo "1111 ${GITHUB_ACTOR}"
+echo "2222 ${GITHUB_REPOSITORY}"
+
 # config git
 git config --local user.name "${GITHUB_ACTOR}"
 git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
