@@ -37,6 +37,7 @@ rm -r _book
 git clone https://github.com/saucym/saucym.github.io.git _book
 
 ls
+echo =================
 ls _book/
 
 # build gitbook
