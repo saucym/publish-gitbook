@@ -59,5 +59,9 @@ COMMIT_MESSAGE="Update gitbook `date '+%Y-%m-%d %H:%M:%S'`"
 git commit -a -m "${COMMIT_MESSAGE}"
 
 echo =================2
+git remote set-url upstream https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/saucym/saucym.github.io.git
+git remote set-url origin https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/saucym/saucym.github.io.git
+
+echo =================3
 
 git push
