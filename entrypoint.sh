@@ -29,6 +29,7 @@ git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 print_info "installing gitbook-cli"
 npm install gitbook-cli  -g
 
+rm -r _book
 print_info "installing gitbook plugins"
 gitbook --version
 gitbook install
@@ -59,7 +60,6 @@ COMMIT_MESSAGE="Update gitbook `date '+%Y-%m-%d %H:%M:%S'`"
 git commit -a -m "${COMMIT_MESSAGE}"
 
 echo =================2
-git remote set-url upstream https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/saucym/saucym.github.io.git
 git remote set-url origin https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/saucym/saucym.github.io.git
 
 echo =================3
