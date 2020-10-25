@@ -34,6 +34,7 @@ gitbook --version
 gitbook install
 
 rm -r _book
+rm -r ${GITHUB_ACTOR}.github.io.git
 
 git clone https://github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git
 
