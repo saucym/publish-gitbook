@@ -50,6 +50,8 @@ echo copy finish
 
 cd ${GITHUB_ACTOR}.github.io
 
+rm -r .github
+
 git add .
 
 git remote -v
